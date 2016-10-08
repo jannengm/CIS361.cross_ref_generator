@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctyes>
 
 struct data{
   char* identifier;
@@ -21,13 +22,24 @@ typedef struct node node;
 typedef struct data data;
 typedef struct list list;
 
+node* init_node(char* ident, int line, node* next);
 void add(list* link_list, node* n );
 node* find_identifier(list* link_list, char* ident);
+void free_list(list* link_list);
 
 int main(int argc, char* argv[]){
   return 0;
 }
 
+int is_ident_char(char ch){
+  if(isalnum(ch) || ch == '_')
+    return 1;
+  else
+    return 0;
+}
+
+/*Allocates memory for a new node. Inititiallizes new node with
+ *passed values. Returns pointer to the new node.*/
 node* init_node(char* ident, int line, node* next){
   node* n = malloc( sizeof(node) );
   n->d.identifier = ident;
