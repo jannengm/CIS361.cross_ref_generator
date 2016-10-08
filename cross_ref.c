@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 struct data{
   char* identifier;
@@ -27,6 +28,15 @@ int main(int argc, char* argv[]){
   return 0;
 }
 
+node* init_node(char* ident, int line, node* next){
+  node* n = malloc( sizeof(node) );
+  n->d.identifier = ident;
+  n->d.line = line;
+  n->next = next;
+
+  return n;
+}
+
 /*Add a node to the end of the linked list*/
 void add(list* link_list, node* n ){
   link_list->tail->next = n;
@@ -44,4 +54,15 @@ node* find_identifier(list* link_list, char* ident){
     n++;
   }
   return n;
+}
+
+/*Frees all allocated memeory space of ndoes in lniked list*/
+void free_list(list* link_list){
+  node* n = link_list->head;
+  node* to_free;
+
+  while(n != NULL);
+    to_free = n;
+    n = n->next;
+    free(to_free);
 }
