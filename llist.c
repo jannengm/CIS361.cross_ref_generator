@@ -8,9 +8,10 @@
  *passed values. Returns pointer to the new node.*/
 node_t* init_node(char* ident, int line, node_t* next){
     node_t* n = malloc( sizeof(node_t) );
-//    n->d.identifier = ident;
     strncpy(n->d.identifier, ident, IDENT_LEN);
-    n->d.line = line;
+//    n->d.lines = line;
+    init_queue( &(n->d.lines) );
+    enqueue( line, &(n->d.lines) );
     n->next = next;
 
     return n;
@@ -37,6 +38,7 @@ void add(list_t* linked_list, char * ident, int line){
     }
     else{
         //add line to queue
+        enqueue( line, &(n->d.lines) );
     }
 }
 
@@ -68,7 +70,11 @@ void free_list(list_t * linked_list){
 void print_list(list_t * linked_list){
     node_t * tmp = linked_list->head;
     while(tmp != NULL){
-        printf("%d\t%s\n", tmp->d.line, tmp->d.identifier);
+        printf("%-20s\t", tmp->d.identifier);
+        while( !is_empty( &(tmp->d.lines) ) ){
+            printf("%d ", dequeue(&(tmp->d.lines)));
+        }
+        printf("\n");
         tmp = tmp->next;
     }
 }

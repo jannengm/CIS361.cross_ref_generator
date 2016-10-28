@@ -5,12 +5,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "queue.h"
 
 #define IDENT_LEN 64
 
 struct data_t{
     char identifier[IDENT_LEN];
-    int line;
+    queue_t lines;
 };
 
 struct node_t{
