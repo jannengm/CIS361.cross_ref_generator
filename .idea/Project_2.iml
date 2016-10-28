@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/llist.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cross_ref.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/llist.c" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
