@@ -1,12 +1,26 @@
 #include "llist.h"
 
+/*This enum is to designate the state of input of a file. The tyoe
+ * of the current "word" being read in is one of the following:
+ *
+ *  IDENT   The current word is an identifier
+ *  STRING  The current word is within a string or character literal
+ *  COMMENT The current word is within a multi-line block comment
+ *  LINE_COMMENT    The current word is part of a single line comment
+ *  NON_IDENT   The current word falls into non of the above categories
+ *
+ *  Where a "word" is any sequence of characters, including whitespace,
+ *  delimited by a transition from one state to another*/
 enum state_t{ NON_IDENT, IDENT, STRING, COMMENT, LINE_COMMENT };
 
+/*A simple boolean enum*/
 enum bool_t{ FALSE, TRUE };
 
+/*Typedefs*/
 typedef enum state_t state_t;
 typedef enum bool_t bool_t;
 
+/*Function prototypes*/
 int is_ident_char(char ch);
 void process_file(const char * path, list_t * linked_list);
 
@@ -20,8 +34,10 @@ int main(int argc, char* argv[]){
         exit(1);
     }
 
+    /*Process the input file*/
     process_file(argv[1], &linked_list);
 
+    /*Print the contents of the linked list to stdout*/
     print_list(&linked_list);
 
     /*Clean up and exit*/
@@ -38,29 +54,59 @@ int is_ident_char(char ch){
         return 0;
 }
 
+/*Takes as arguments a string containing the path to an input file and
+ * a pointer to a linked list used to store identifiers. Reads through
+ * the input file character by character and stores all identifiers in
+ * the provided linked list as well as the line numbers in which those
+ * identifiers appear. The processing of identifiers is modeled as a
+ * finite state machine using the states described in enum state_t*/
 void process_file(const char * path, list_t * linked_list){
+    /*The file to read input from*/
     FILE * in_file;
-    char ch, prev_ch = '\n', ident[IDENT_LEN];
+
+    /*Keeps track of the two most recently read characters*/
+    char ch;
+    char prev_ch = '\n';
+
+    /*Identifiers are built character by character while the input is
+     * in the IDENT state*/
+    char ident[IDENT_LEN];
+
+    /*Keeps track of the current line # of the input file*/
+    int line = 1;
+
+    /*Used to iterate through the ident[] array and add characters
+     * to the end*/
+    int index = 0;
+
+    /*The input starts in the NON_IDENT state*/
     state_t state = NON_IDENT;
-    int line = 1, index = 0;
+
+    /*Flag to designate whether or not the current line is a preprocessor
+     * directive. The STRING state behaves differently if true*/
     bool_t preprocess = FALSE;
-//    node_t * new_node;
 
     /*Open specified file*/
     in_file = fopen(path, "r");
     if(in_file == NULL){
         fprintf(stderr, "Failed to open file %s\n", path);
+        free_list(linked_list);
         exit(1);
     }
 
     /*Initialize ch to be the first character of the file*/
     ch = (char)fgetc(in_file);
+
+    /*If the file is empty, exit the program*/
     if(ch == EOF){
-        perror("Empty file");
+        fprintf(stderr, "Empty file\n");
         fclose(in_file);
+        free_list(linked_list);
         exit(1);
     }
 
+    /*Loop through the file one character at a time until the end of file
+     * is reached*/
     do {
 
         /*If the line starts with #, preprocessor instruction */
@@ -69,7 +115,8 @@ void process_file(const char * path, list_t * linked_list){
         }
 
         switch(state){
-            /*The case where we are not currently reading an identifier, nor a string or comment*/
+            /*The case where we are not currently reading an identifier,
+             * nor a string or comment*/
             case NON_IDENT:
                 if( !preprocess && ( ch == '"' || ch == '\'' ) )
                     state = STRING;
@@ -78,9 +125,14 @@ void process_file(const char * path, list_t * linked_list){
                 else if(prev_ch == '/' && ch == '/')
                     state = LINE_COMMENT;
                 else if( is_ident_char(ch) && !isdigit(ch) ){
-                    //Start identifier string
+                    /*Start building identifier string*/
                     state = IDENT;
                     ident[index++] = ch;
+                    /*Check not about to overflow max identifier length*/
+                    if(index == IDENT_LEN){
+                        fprintf(stderr, "Identifier at line %d over "
+                                "maximum allowed length", line);
+                    }
                 }
                 break;
 
@@ -93,22 +145,20 @@ void process_file(const char * path, list_t * linked_list){
                 else if(prev_ch == '/' && ch == '/')
                     state = LINE_COMMENT;
                 else if( is_ident_char(ch) ){
-                    //add to identifier
+                    /*add the character to identifier*/
                     ident[index++] = ch;
                 }
                 else {
-                    //end identifier, create new entry
+                    /*end identifier, add it to the linked lister*/
                     state = NON_IDENT;
                     ident[index] = '\0';
-//                    printf("%d\t%s\n", line, ident);
                     index = 0;
-//                    new_node = init_node(ident, line, NULL);
                     add(linked_list, ident, line);
                 }
                 break;
 
-            /*The case where we are currently reading a string. Assumes strings are ended
-             * on the same line they are created*/
+            /*The case where we are currently reading a string. Assumes
+             * strings are ended on the same line they are created*/
             case STRING:
                 if(ch == '"' || ch == '\'')
                     state = NON_IDENT;
@@ -120,19 +170,15 @@ void process_file(const char * path, list_t * linked_list){
                     state = NON_IDENT;
                 break;
 
-            /*The case where we are reading a single line comment. Assumes '\n' , '\0' ,
-             * and EOF are the only characters used to terminate a line*/
+            /*The case where we are reading a single line comment. Assumes '\n' ,
+             * '\0' , and EOF are the only characters used to terminate a line*/
             case LINE_COMMENT:
                 if(ch == '\n' || ch == '\0')
                     state = NON_IDENT;
                 break;
         }
 
-        /*Check not about to overflow max identifier length*/
-        if(index == IDENT_LEN){
-            fprintf(stderr, "Identifier at line %d over maximum allowed length", line);
-        }
-
+        /*Update the line counter if a newline is encountered*/
         if(ch == '\n') {
             line++;
             preprocess = FALSE;
