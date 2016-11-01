@@ -1,3 +1,13 @@
+/**********************************************************************
+ * CIS 361 System Programming, Fall 2016
+ * Project 2 - Cross-Reference Generator
+ * Author - Mark Jannenga
+ *
+ * This program takes a c source file as a command line argument, scans
+ * through it, and finds all the identifiers in the program as well as
+ * the line numbers on which they appear.
+ **********************************************************************/
+
 #include "llist.h"
 
 /*This enum is to designate the state of input of a file. The tyoe
@@ -38,6 +48,7 @@ int main(int argc, char* argv[]){
     process_file(argv[1], &linked_list);
 
     /*Print the contents of the linked list to stdout*/
+    print_list(&linked_list);
     print_list(&linked_list);
 
     /*Clean up and exit*/
