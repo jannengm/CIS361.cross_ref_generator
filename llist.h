@@ -32,11 +32,15 @@ typedef struct list_t list_t;
  *passed values. Returns pointer to the new node.*/
 node_t* init_node(char* ident, int line, node_t* next);
 
+int compare_node(const node_t * n, const node_t * m);
+
 /*Initializes the linked list to be an empty list*/
 void init_list(list_t * linked_list);
 
 /*Add a node to the end of the linked list*/
 void add(list_t* linked_list, char * ident, int line);
+
+void insert_in_order(list_t* linked_list, node_t * n);
 
 /*Searches through the linked list for an identifier, returns
  *a pointer to the node if found, else NULL*/

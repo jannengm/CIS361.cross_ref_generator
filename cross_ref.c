@@ -127,6 +127,7 @@ void process_file(const char * path, list_t * linked_list){
                 else if( is_ident_char(ch) && !isdigit(ch) ){
                     /*Start building identifier string*/
                     state = IDENT;
+                    memset(ident, 0, IDENT_LEN);
                     ident[index++] = ch;
                     /*Check not about to overflow max identifier length*/
                     if(index == IDENT_LEN){

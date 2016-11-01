@@ -15,6 +15,10 @@ typedef struct queue_t queue_t;
 void init_queue(queue_t * q);
 void enqueue(int n, queue_t * q);
 int dequeue(queue_t * q);
+
+/*Returns 1 if the queue is empty, else 0*/
 int is_empty(queue_t * q);
 
+/*Returns the most recently added item*/
+int get_back(queue_t * q);
 
