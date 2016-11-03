@@ -3,9 +3,9 @@
  * Project 2 - Cross-Reference Generator
  * Author - Mark Jannenga
  *
- * Linked list source file. Contains function definitions of functions
- * declared in llist.h
- *******************************************************************************/
+ * Linked list source file. Contains function definitions of functions declared
+ * in llist.h
+*******************************************************************************/
 
 #include "llist.h"
 

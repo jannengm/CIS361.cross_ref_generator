@@ -1,12 +1,13 @@
-/**********************************************************************
+/*******************************************************************************
  * CIS 361 System Programming, Fall 2016
  * Project 2 - Cross-Reference Generator
  * Author - Mark Jannenga
  *
- * This program takes a c source file as a command line argument, scans
- * through it, and finds all the identifiers in the program as well as
- * the line numbers on which they appear.
- **********************************************************************/
+ * This program takes a c source file as a command line argument, scans through
+ * it, and finds all the identifiers in the program as well as the line numbers
+ * on which they appear.
+ *******************************************************************************/
+
 
 #include "llist.h"
 

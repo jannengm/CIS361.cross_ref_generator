@@ -1,5 +1,11 @@
-/*Queue header file. Contains the struct and function prototypes for a
- * queue of integers*/
+/*******************************************************************************
+ * CIS 361 System Programming, Fall 2016
+ * Project 2 - Cross-Reference Generator
+ * Author - Mark Jannenga
+ *
+ * Queue header file. Contains the struct and function prototypes for a queue of
+ * intergers
+*******************************************************************************/
 
 /*The maximum size of the queue*/
 #define MAX_SIZE 100

@@ -1,5 +1,11 @@
-/*Linked list header file. Contains the struct and function prototypes for a
- * linked list of identifiers and a queue of the lines eah identifier appears on*/
+/*******************************************************************************
+ * CIS 361 System Programming, Fall 2016
+ * Project 2 - Cross-Reference Generator
+ * Author - Mark Jannenga
+ *
+ * Linked list header file. Contains the struct and function prototypes for a
+ * linked list of identifiers and a queue of the lines eah identifier appears on
+*******************************************************************************/
 
 #include <stdio.h>
 #include <string.h>

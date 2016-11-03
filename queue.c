@@ -1,5 +1,11 @@
-/*Queue source code. Contains function definitions of functions declared in
- * queue.h*/
+/*******************************************************************************
+ * CIS 361 System Programming, Fall 2016
+ * Project 2 - Cross-Reference Generator
+ * Author - Mark Jannenga
+ *
+ * Queue source code. Contains function definitions of functions declared in
+ * queue.h
+*******************************************************************************/
 
 #include "queue.h"
 
