@@ -1,0 +1,60 @@
+Script started on Thu 03 Nov 2016 04:30:07 PM DST
+$
+$#--------------------Test 2--------------------
+$
+$#-----Compile and run tests-----
+$
+$make
+gcc -Wall  -c cross_ref.c
+gcc -Wall  -c llist.c
+gcc -Wall  -c queue.c
+linking...
+$
+$make test
+./a.out date.c > date_output.txt
+./a.out queue.c > queue_output.txt
+$
+$#-----Display test results-----
+$
+$cat queue_output.txt
+array               	22 28 39
+back                	15 21 22 34 39
+dequeue             	27
+enqueue             	20
+front               	14 28 34
+get_back            	38
+h                   	10
+if                  	21
+include             	10
+init_queue          	13
+int                 	20 27 33 38
+is_empty            	33 
+MAX_SIZE            	21
+n                   	20 22
+q                   	13 14 15 20 21 22 27 28 33 34 38 39
+queue               	10
+queue_t             	13 20 27 33 38
+return              	28 34 39
+void                	13 20
+array               	22 28 39
+back                	15 21 22 34 39
+dequeue             	27
+enqueue             	20
+front               	14 28 34
+get_back            	38
+h                   	10
+if                  	21
+include             	10
+init_queue          	13
+int                 	20 27 33 38
+is_empty            	33
+MAX_SIZE            	21
+n                   	20 22
+q                   	13 14 15 20 21 22 27 28 33 34 38 39
+queue               	10
+queue_t             	13 20 27 33 38
+return              	28 34 39
+void                	13 20
+$exit
+
+Script done on Thu 03 Nov 2016 04:31:23 PM DST

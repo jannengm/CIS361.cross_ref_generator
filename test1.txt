@@ -1,0 +1,54 @@
+Script started on Thu 03 Nov 2016 04:26:59 PM DST
+$
+$#--------------------Test 1--------------------
+$
+$#-----Compile and run tests-----
+$
+$make
+gcc -Wall  -c cross_ref.c
+gcc -Wall  -c llist.c
+gcc -Wall  -c queue.c
+linking...
+$
+$make test
+./a.out date.c > date_output.txt
+./a.out queue.c > queue_output.txt
+$
+$#-----Display test results-----
+$
+$cat date_output.txt
+areDatesEqual       	10 29
+const               	10 17 28
+Date                	10 17 28
+date                	8
+day                 	14 25
+h                   	8
+if                  	19 21
+include             	8
+int                 	10 17 28
+isDateAfter         	28
+isDateBefore        	17 29
+month               	13 24 25
+return              	12 20 22 24 29
+xptr                	10 12 13 14 17 19 21 24 25 28 29
+year                	12 19 21
+yptr                	10 12 13 14 17 19 21 24 25 28 29
+areDatesEqual       	10 29
+const               	10 17 28
+Date                	10 17 28
+date                	8
+day                 	14 25
+h                   	8
+if                  	19 21
+include             	8
+int                 	10 17 28
+isDateAfter         	28
+isDateBefore        	17 29
+month               	13 24 25
+return              	12 20 22 24 29
+xptr                	10 12 13 14 17 19 21 24 25 28 29
+year                	12 19 21
+yptr                	10 12 13 14 17 19 21 24 25 28 29
+$exit
+
+Script done on Thu 03 Nov 2016 04:28:46 PM DST

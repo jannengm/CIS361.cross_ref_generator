@@ -1,0 +1,105 @@
+Script started on Thu 03 Nov 2016 04:34:25 PM DST
+$
+$#--------------------Git Log--------------------
+$
+$git log > gitlog.txt
+$
+$cat gitlog.txt
+commit 932af8ce3b0fd772428f84bffeb66a03b49ccbad
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Thu Nov 3 16:20:55 2016 -0400
+
+    Added tests to makefile
+
+commit 5f328c3209820a0b283dcf47765a62bc94081c3b
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Thu Nov 3 16:12:34 2016 -0400
+
+    Added additional comments
+
+commit 77af4b9aa955d7f991a2a8df510e4b247454cfcb
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Tue Nov 1 16:57:31 2016 -0400
+
+    Added more comments
+
+commit 911f41961c86657939701d6506906c3c00e5b2cb
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Mon Oct 31 20:27:51 2016 -0400
+
+    Made linked list ordered
+
+commit f03dc3fabb602585f7467d66a2691168cb393d91
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Mon Oct 31 17:40:36 2016 -0400
+
+    Fully commented cross_ref.c
+
+commit d27ec56a81f025fb4dd13074c47c174a9a098e3b
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Fri Oct 28 18:40:01 2016 -0400
+
+    Implemented queue. Project fully functional.
+
+commit e912febd66ee2fc65872bee28b9fbb527b302174
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Fri Oct 28 18:02:42 2016 -0400
+
+    Split linked list implementation into header and source files. Created makefile
+
+commit 65c8da1076786eeaa94c7d1e5a3a8753d6808f74
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Fri Oct 28 16:18:51 2016 -0400
+
+    Linked list and identifier recognition working.
+
+commit 8cb74c40d3620bf60453ee7d1b6c7bf703f054fd
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Fri Oct 28 13:51:32 2016 -0400
+
+    Initialized CLion project
+
+commit 27d8467a0891f2194da2510aa3648d8ea67b1b35
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Thu Oct 27 17:01:27 2016 -0400
+
+    Started line processing
+
+commit 5fdc301bf3af348c5aeff7603f4af7bb6be79943
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Sat Oct 8 19:17:05 2016 -0400
+
+    Didn't actually save on that last commit. Helper functions for real this time.
+
+commit 9bd9fa852547bb4e9810145fd029955be1778c6b
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Sat Oct 8 19:14:51 2016 -0400
+
+    Additional helper functions added
+
+commit 960856c1438276be4c97c954f5a7bb4525e26e80
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Sat Oct 8 18:34:33 2016 -0400
+
+    Added search function to linked list
+
+commit 1ff98113ed8b0b9a0c19905e2e83fba30442c030
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Thu Oct 6 16:45:53 2016 -0400
+
+    Started linked list definition
+
+commit 2bcd2823ed8fd9fb9e3503cf923bb183946cd4b9
+Author: Mark Jannenga <jannengm@mail.gvsu.edu>
+Date:   Thu Oct 6 16:12:29 2016 -0400
+
+    Initial commit
+
+commit bbbdbfeca053ddcf048d796fd829851f1164529c
+Author: jannengm <jannengm@mail.gvsu.edu>
+Date:   Thu Oct 6 16:02:49 2016 -0400
+
+    Initial commit
+$exit
+
+Script done on Thu 03 Nov 2016 04:35:14 PM DST
