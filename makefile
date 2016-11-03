@@ -13,3 +13,7 @@ $(EXEC): $(OBJS)
 
 $(OBJS): llist.h queue.h
 	$(CC) $(CFLAGS) $(INCLS) -c $*.c
+
+test:
+	./a.out date.c > date_output.txt
+	./a.out queue.c > queue_output.txt
